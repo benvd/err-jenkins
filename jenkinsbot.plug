@@ -1,0 +1,6 @@
+[Core]
+Name = JenkinsBot
+Module = jenkinsBot
+
+[Documentation]
+Description = Integrate with Jenkins CI
