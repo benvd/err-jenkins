@@ -37,5 +37,8 @@ class JenkinsBot(BotPlugin):
         return '\n'.join(['%s (%s)' % (job['name'].ljust(max_length), job['url']) for job in jobs]).strip()
 
     def format_running_jobs(self, jobs):
+        if len(jobs) == 0:
+            return u'No running jobs.'
+
         jobs_info = [self.jenkins.get_job_info(job['name']) for job in jobs]
         return '\n\n'.join(['%s (%s)\n%s' % (job['name'], job['lastBuild']['url'], job['healthReport'][0]['description']) for job in jobs_info]).strip()
